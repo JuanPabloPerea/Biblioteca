@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+    <div id="head">
+        <h3>Bienvenido a BiblioUD</h3>
+        <button id="iniSes" onclick="funcion2()" name="iniSes">iniciar sesion</button>
+        <button id="nueUsu" onclick="funcion()" name="nueUsu">nuevo usuario</button>
+    </div>
+    <div id="body">
+        <form id="datos" name="datos">
+            <label id="usua">Nombre de usuario:</label><br>
+            <input type="text" id="usu" name="usu"><br>
+            <label id="passw">constraseña:</label><br>
+            <input type="text" id="pass" name="pass"><br>
+        </form>
+    </div>
+    <script>
+        function funcion() {
+            document.getElementById("usua").style.color = "red";
+            document.getElementById("passw").style.color = "red";
+        }
+        function funcion2() {
+            document.getElementById("usua").style.color = "black";
+            document.getElementById("passw").style.color = "black";
+        }
+    </script>
+
+</body>
+</html>
