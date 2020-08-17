@@ -1,7 +1,7 @@
 import mysql.connector as prueba
 
 prueba = prueba.connect(host='localhost', port='3306',
-                                  user='root', password='abc123', database='miprueba')
+                                  user='root', password='abc123', database='BibliUd')
 
 cursor = prueba.cursor()
 
