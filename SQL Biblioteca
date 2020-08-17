@@ -1,0 +1,40 @@
+-- BiblioUd.Usuario definition
+
+CREATE TABLE `Usuario` (
+  `Cedula` int(11) NOT NULL,
+  `Nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Apellido` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `edad` int(11) NOT NULL,
+  `Direccion` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Passwod` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `celular` int(11) NOT NULL,
+  PRIMARY KEY (`Cedula`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- BiblioUd.Prestamo definition
+
+CREATE TABLE `Prestamo` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `fechaPrestamo` date NOT NULL,
+  `fechaEntrega` date NOT NULL,
+  `multa` int(11) DEFAULT NULL,
+  `cedula_Usuario` int(11) NOT NULL,
+  `id_libro` int(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Prestamo_FK_1` (`cedula_Usuario`),
+  KEY `Prestamo_FK` (`id_libro`),
+  CONSTRAINT `Prestamo_FK` FOREIGN KEY (`id_libro`) REFERENCES `Libro` (`id`),
+  CONSTRAINT `Prestamo_FK_1` FOREIGN KEY (`cedula_Usuario`) REFERENCES `Usuario` (`Cedula`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- BiblioUd.Libro definition
+
+CREATE TABLE `Libro` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombreLibro` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `descripcion` varchar(600) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `autor` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disponibilidad` tinyint(1) NOT NULL,
+  `numCopias` int(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
