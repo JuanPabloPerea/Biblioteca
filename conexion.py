@@ -65,21 +65,49 @@ def registrarUsu (cedula,passw,nombre,apellido,edad,celular):
     prueba.close()
 
 def validarUsuario (cedula, passw):
+    aux = []
     prueba = conn.connect(host='localhost', port='3306',
                           user=user, password=password, database=database)
     cursor = prueba.cursor()
+    cursor = prueba.cursor()
     datos = (cedula, passw)
+
     sql = "select * from Usuario where cedula = (%s) " \
           "and password = (%s)"
+    sql2 = "select * from (select cedula from Usuario where cedula = (%s) " \
+          "and password = (%s)) as us inner join Prestamo on us.cedula=Prestamo.cedula_Usuario"
     try:
         cursor.execute(sql, datos)
         for i in cursor:
-            print (i)
+            aux.append(i)
+        if aux == []:
+            print("no hay usuarios con esa id o clave")
+            return 0
+        else:
+            cursor.execute(sql2, datos)
+            print("Bienvendio: ",cedula)
+
+    except prueba.error as error:
+        print("Error: {}".format(error))
+    prueba.close()
+def sacarlibros(li):
+    prueba = conn.connect(host='localhost', port='3306',
+                          user=user, password=password, database=database)
+    cursor = prueba.cursor()
+    sql = "select id,nombreLibro, autor, descripcion from Libro"
+
+    try:
+        cursor.execute(sql)
+        aux = cursor.fetchall()
+        return aux
     except prueba.error as error:
         print("Error: {}".format(error))
     prueba.close()
 
-validarUsuario(40979866,"cba213")
+#validarUsuario(40979866,"cba213",usua,pre)
+#print(usua)
+#print(pre)
+
 """
 def eliminar ():
     prueba = conn.connect(host='localhost', port='3306',

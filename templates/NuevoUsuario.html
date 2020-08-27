@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+	<link rel="stylesheet" type="text/css" href="../static/plantilla.css"/>
     <meta charset="UTF-8">
     <title>Registrar</title>
+	
 </head>
 <body>
     <div>
         <h3>Nuevo Usuario</h3>
-        <button id="iniSes" name="iniSes">Registrarse</button>
-        <button id="nueUsu" name="nueUsu">Cancelar</button>
-    </div>
-    <div>
-        <form id="datosNueUsu" name="datosNueUsu">
+
+        <form id="datosNueUsu" name="datosNueUsu" method="POST">
+		
             <label>escriba nombre de usuario: </label><br>
             <input type="text" id="nueUsu" name="nueUsu"><br>
+            <label>escriba la nombre:</label><br>
+            <input type="text" id="nomUsu" name="nomUsu"><br>
+            <label>escriba la apellido:</label><br>
+            <input type="text" id="apeUsu" name="apeUsu"><br>
+            <label>escriba la edad:</label><br>
+            <input type="text" id="edadUsu" name="edadUsu"><br>
+            <label>escriba la telefono:</label><br>
+            <input type="text" id="telUsu" name="telUsu"><br>
             <label>escriba la contraseña:</label><br>
             <input type="password" id="passUsu" name="passUsu"><br>
             <label>escriba de nuevo la contraseña</label><br>
-            <input type="password" id="passUsu2" name="passUsu2">
+            <input type="password" id="passUsu2" name="passUsu2"><br><br>
+            <input type="submit" value="Registrarse">
+            <input type="button" onclick="location.href = 'Inicio.html'" value="Cancelar">
         </form>
+
     </div>
 </body>
 </html>

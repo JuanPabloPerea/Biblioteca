@@ -1,32 +1,36 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../static/plantilla.css"/>
+	<meta charset="UTF-8">
     <title>Inicio</title>
+	
 </head>
 <body>
     <div id="head">
+	
         <h3>Bienvenido a BiblioUD</h3>
-        <button id="iniSes" onclick="funcion2()" name="iniSes">iniciar sesion</button>
-        <button id="nueUsu" onclick="funcion()" name="nueUsu">nuevo usuario</button>
-    </div>
-    <div id="body">
-        <form id="datos" name="datos">
+    
+		<IMG src="../static/Escudo_UD.png" width="188" height="187" HSPACE="10" VSPACE="10">
+
+		<h3></h3>
+	
+        <form id="datos" name="datos" method="post">
             <label id="usua">Nombre de usuario:</label><br>
             <input type="text" id="usu" name="usu"><br>
             <label id="passw">constraseña:</label><br>
-            <input type="text" id="pass" name="pass"><br>
+            <input type="text" id="pass" name="pass"><br><br>
+            <input type="submit" name="nueUsu" value="Iniciar Sesion">
+            <input type="submit" name="Registrarse" value="Registrarse">
         </form>
+
+		<h3></h3>
+
+
+		
     </div>
     <script>
-        function funcion() {
-            document.getElementById("usua").style.color = "red";
-            document.getElementById("passw").style.color = "red";
-        }
-        function funcion2() {
-            document.getElementById("usua").style.color = "black";
-            document.getElementById("passw").style.color = "black";
-        }
+
     </script>
 
 </body>

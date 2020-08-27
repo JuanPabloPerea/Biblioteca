@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+	<link rel="stylesheet" type="text/css" href="../static/plantillaTablas.css"/>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Prestamo</title>
+	
 </head>
 <body>
     <div>
-        <button id="iniSes" name="iniSes">Registrarse</button>
-        <button id="nueUsu" name="nueUsu">Cancelar</button>
-    </div>
-    <div>
+	
+	<h3>Libros prestados</h3>
+	
+	<TABLE BORDER>
+	
+			<TR>
+				<th> Id </th><TH>Libro</TH> <TH>Autor</TH> <TH>Tema</TH>
+			</TR>
+            {% for libro in libros %}
+                <tr>
+                    <td>{{ libro.0 }}</td>
+                    <td>{{ libro.1 }}</td>
+                    <td>{{ libro.2 }}</td>
+                    <td>{{ libro.3 }}</td>
+                </tr>
+            {% endfor %}
+	</TABLE>
 
+    <form method="POST">
+        <laber>Id de libro a pedir:</laber><br>
+        <input type="text" name="id"><br><br>
+        <input type="submit" value="pedir libro">
+    </form>
     </div>
 </body>
 </html>
